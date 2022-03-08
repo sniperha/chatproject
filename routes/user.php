@@ -20,3 +20,4 @@ Route::post('/AddUser',[UserController::class,'AddUser']);
 Route::post('/deleteuser/{id}',[UserController::class,'deleteuser']);
 Route::get('/getalluser',[UserController::class,'getalluser']);
 Route::post('/login',[UserController::class,'login']);
+Route::get('/hello',function (){return "hello";});
