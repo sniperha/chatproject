@@ -60,13 +60,19 @@ public function login(Request $request){
         'email'=>'required|email',
         'password'=>'required|alphaNum|min:3'
     ]);
-    $user_date=[
-        'email'=>$request->email,
-        'password'=>$request->password,
+    $user_data=[
+        'email'=>$request->get('email'),
+        'password'=>$request->get('password'),
     ];
-    if(Auth::attempt($user_date)){
-        return "<p>okay</p>";
+    
+    if(Auth::attempt($user_data)){
+        return view("<p>okay</p>");
     }
+    // foreach(User::all() as $user1){
+    //     if($user->email==$user_data['email']&&$user->password==$user_data['password']){
+    //         return "good";
+    //     }
+    // }
 
 }
     //
