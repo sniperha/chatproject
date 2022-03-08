@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Validator;
+use Auth;
 
 class UserController extends Controller
 {
@@ -53,5 +55,19 @@ class UserController extends Controller
     
     
 }    
+public function login(Request $request){
+    $this->validate($request,[
+        'email'=>'required|email',
+        'password'=>'required|alphaNum|min:3'
+    ]);
+    $user_date=[
+        'email'=>$request->email,
+        'password'=>$request->password,
+    ];
+    if(Auth::attempt($user_date)){
+        return "okay";
+    }
+
+}
     //
 }
