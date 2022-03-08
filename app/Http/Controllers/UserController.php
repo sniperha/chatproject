@@ -65,7 +65,7 @@ public function login(Request $request){
         'password'=>$request->password,
     ];
     if(Auth::attempt($user_date)){
-        return "okay";
+        return "<p>okay</p>";
     }
 
 }
