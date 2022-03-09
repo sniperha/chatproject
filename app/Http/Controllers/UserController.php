@@ -6,6 +6,7 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
+use Laravel\Sanctum\HasApiTokens;
 
 class UserController extends Controller
 {
@@ -65,14 +66,17 @@ public function login(Request $request){
         'password'=>$request->get('password'),
     ];
     
-    if(Auth::attempt($user_data)){
-        return view("<p>okay</p>");
-    }
-    // foreach(User::all() as $user1){
-    //     if($user->email==$user_data['email']&&$user->password==$user_data['password']){
-    //         return "good";
-    //     }
+
+    // if(Auth::attempt($user_data)){
+    //     return view("<p>okay</p>");
     // }
+    if(true){
+    foreach(User::all() as $user1){
+        if($user->email==$user_data['email']&&$user->password==$user_data['password']){
+            return "good";
+        }
+    }
+}
 
 }
     //
